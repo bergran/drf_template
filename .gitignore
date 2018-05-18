@@ -1,5 +1,5 @@
 # Created by https://www.gitignore.io/api/django,pycharm
-
+venv
 ### Django ###
 *.log
 *.pot
