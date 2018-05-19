@@ -20,12 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'y-=taav2b2xqy-2iej2u-2a#tcc#woj41&xb+qzwb6pz(i-rc6'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'y-=taav2b2xqy-2iej2u-2a#tcc#woj41&xb+qzwb6pz(i-rc6')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOST', '127.0.0.1'), ]
 
 
 # Application definition
@@ -145,7 +145,7 @@ REST_FRAMEWORK = {
     'TEST_REQUEST_DEFAULT_FORMAT': 'json',
     'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.NamespaceVersioning',
     'DEFAULT_PAGINATION_CLASS': 'project.paginator.CountPaginationHeaders',
-    'PAGE_SIZE': 20
+    'PAGE_SIZE': os.environ.get('PAGE_SIZE', 20)
 }
 
 
@@ -159,13 +159,15 @@ ACCOUNT_AUTHENTICATION_METHOD = 'email'
 JWT_AUTH = {
     'JWT_SECRET_KEY': SECRET_KEY,
     'JWT_VERIFY': True,
-    'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(minutes=20),
+    'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(
+        minutes=os.environ.get('REFRESH_EXPIRATION_MINUTES', 15)
+    ),
     'JWT_ALLOW_REFRESH': True,
-    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=1),
-    'JWT_AUTH_HEADER_PREFIX': 'Bearer',
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(minutes=os.environ.get('TOKEN_EXPIRATION_MINUTES', 1440)),
+    'JWT_AUTH_HEADER_PREFIX': os.environ.get('TOKEN_PREFIX', 'Bearer'),
 }
 
-LOGOUT_ON_PASSWORD_CHANGE = False
+LOGOUT_ON_PASSWORD_CHANGE = True
 OLD_PASSWORD_FIELD_ENABLED = True
 REST_SESSION_LOGIN = False
 REST_USE_JWT = True
