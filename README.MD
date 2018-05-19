@@ -44,6 +44,20 @@ with the next headers:
 
 You can configure elements number per page with `PAGE_SIZE`.
 
+## Api documentation
+
+Documentation it's gonna be automatic. When you add endpoints to
+router from rest framework this will add too to here.
+
+You can interact with this documentation. This means you can
+request your endpoints from the web that coreapi provides.
+
+It's published on `/api/docs/` and only can be access if the user is logged with
+django Session (cookie)
+
+Documentation is from coreapi library. You can see more info
+[here](http://www.django-rest-framework.org/topics/documenting-your-api/)
+
 ## Configuration global(Environment variables)
 
 * DJANGO_SETTINGS_MODULE: Config environment configuration, you can see more
