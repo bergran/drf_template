@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 from project.settings import *
 
-DEBUG = False
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
