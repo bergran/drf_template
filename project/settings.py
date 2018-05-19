@@ -208,3 +208,7 @@ CACHES = {
         "KEY_PREFIX": "redis"
     }
 }
+
+AXES_CACHE = 'default'
+AXES_COOLOFF_TIME = datetime.timedelta(minutes=1)
+AXES_META_PRECEDENCE_ORDER = (os.environ.get('ADDR_CLIENT', 'REMOTE_ADDR'),)

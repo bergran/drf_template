@@ -77,6 +77,12 @@ Default `1440 minutes (1 day)`
 * POSTGRES_PASSWORD: DB Password postgres. Default `myproject`
 * POSTGRES_HOST: DB Host postgres. Default `127.0.0.1`
 * POSTGRES_PORT: DB Port postgres. Default `5432`
+* ADDR_CLIENT: Header where origin ip request is found. It's important
+to know if you are under to proxy that you have to configure this environment here,
+and also on nginx or apache. Default `REMOTE_ADDR`
+
+**Note** ADDR_CLIENT environment has to stay with the django
+header notation you can see more help [here](https://docs.djangoproject.com/en/2.0/ref/request-response/#django.http.HttpRequest.META)
 
 ## Configuration Staging/production(Environment variables)
 
@@ -114,6 +120,7 @@ example `.env` file:
     EMAIL_PORT=25
     EMAIL_HOST_USER=pepito@patatita123.com
     EMAIL_HOST_PASSWORD=SuperSecurePassword
+    ADDR_CLIENT=REMOTE_ADDR
 ```
 
 ## Environments
