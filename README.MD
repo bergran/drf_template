@@ -111,9 +111,9 @@ example `.env` file:
     POSTGRES_PASSWORD=myproject
     POSTGRES_HOST=myproject
     POSTGRES_PORT=myproject
-    STATIC_URL=\/static\/
+    STATIC_URL=/static\
     STATIC_ROOT=static
-    MEDIA_URL=\/media\/
+    MEDIA_URL=/media\
     MEDIA_ROOT=media
     DEFAULT_FROM_EMAIL=pepito@patatita123.com
     EMAIL_HOST=127.0.0.1
@@ -162,7 +162,15 @@ example `.env` file:
 
 ## Deploy
 
-Most likely in docker but Work in progress...
+1. Create a `.env` file on project root
+2. Copy and paste environments configurations. You can see this at top side.
+3. Modify on `.env` file your custom configurations.
+4. Execute `docker-compose up -d`
+5. Create superuser `docker-compose exec django python manage.py createsuperuser` and fill
+fields.
+6. Go to <host-address>:8000/admin/ and login with your superuser.
+7. Go to <host-address>:8000/api/docs/ and interact with the environment.
+8. Start to build your project!
 
 ## Author
 

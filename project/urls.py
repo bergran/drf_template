@@ -23,7 +23,7 @@ urlpatterns = [
     path('', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
     path('api/', include('rest_auth.urls')),
-    path('api/docs', include_docs_urls(title='Api documentation', public=False)),
+    path('api/docs/', include_docs_urls(title='Api documentation', public=False)),
     path('api/token/verify/', verify_jwt_token),
     path('api/token/refresh/', refresh_jwt_token)
 ]
