@@ -48,6 +48,8 @@ PROJECT_APPS = [
     'axes'
 ]
 
+INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -126,7 +128,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = os.environ.get('STATIC_URL', '/static/')
+STATIC_ROOT = os.environ.get('STATIC_ROOT', 'static')
+MEDIA_URL = os.environ.get('MEDIA_URL', '/media/')
+MEDIA_ROOT = os.environ.get('MEDIA_ROOT', 'media')
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
@@ -144,8 +149,8 @@ REST_FRAMEWORK = {
     ),
     'TEST_REQUEST_DEFAULT_FORMAT': 'json',
     'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.NamespaceVersioning',
-    'DEFAULT_PAGINATION_CLASS': 'project.paginator.CountPaginationHeaders',
-    'PAGE_SIZE': os.environ.get('PAGE_SIZE', 20)
+    'DEFAULT_PAGINATION_CLASS': 'project.paginator.paginator.CountPaginationHeaders',
+    'PAGE_SIZE': int(os.environ.get('PAGE_SIZE', 20))
 }
 
 
@@ -160,10 +165,10 @@ JWT_AUTH = {
     'JWT_SECRET_KEY': SECRET_KEY,
     'JWT_VERIFY': True,
     'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(
-        minutes=os.environ.get('REFRESH_EXPIRATION_MINUTES', 15)
+        minutes=int(os.environ.get('REFRESH_EXPIRATION_MINUTES', 15))
     ),
     'JWT_ALLOW_REFRESH': True,
-    'JWT_EXPIRATION_DELTA': datetime.timedelta(minutes=os.environ.get('TOKEN_EXPIRATION_MINUTES', 1440)),
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(minutes=int(os.environ.get('TOKEN_EXPIRATION_MINUTES', 1440))),
     'JWT_AUTH_HEADER_PREFIX': os.environ.get('TOKEN_PREFIX', 'Bearer'),
 }
 
@@ -212,3 +217,5 @@ CACHES = {
 AXES_CACHE = 'default'
 AXES_COOLOFF_TIME = datetime.timedelta(minutes=1)
 AXES_META_PRECEDENCE_ORDER = (os.environ.get('ADDR_CLIENT', 'REMOTE_ADDR'),)
+
+SITE_ID = 1
