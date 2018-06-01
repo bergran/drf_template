@@ -45,7 +45,7 @@ PROJECT_APPS = [
     'corsheaders',
     'rest_framework',
     'rest_auth',
-    'core'
+    'core.apps.CoreConfig'
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS
@@ -207,3 +207,7 @@ CACHES = {
         "KEY_PREFIX": "redis"
     }
 }
+
+LOGIN_ATTEMPTS = int(os.environ.get('LOGIN_ATTEMPTS', 10))
+LOGIN_PREFIX = os.environ.get('LOGIN_PREFIX', 'user')
+LOGIN_ACTIVATE = os.environ.get('LOGIN_ACTIVATE', 'no')

@@ -31,7 +31,10 @@ different per environment.
 * Session (Cookie): Only development and staging environment has this permission
 * Basic authentication: Only development and staging environment has this permission
 
-Authentication is protected by django axes with a maximum number of 3 failed attempts per minute.
+Authentication is protected by signals. To activate this method you have to configure
+LOGIN_ACTIVATE with `yes` choice.
+
+Note: To activate this feature you have to configure a redis cache
 
 ## Pagination
 
@@ -77,12 +80,10 @@ Default `1440 minutes (1 day)`
 * POSTGRES_PASSWORD: DB Password postgres. Default `myproject`
 * POSTGRES_HOST: DB Host postgres. Default `127.0.0.1`
 * POSTGRES_PORT: DB Port postgres. Default `5432`
-* ADDR_CLIENT: Header where origin ip request is found. It's important
-to know if you are under to proxy that you have to configure this environment here,
-and also on nginx or apache. Default `REMOTE_ADDR`
-
-**Note** ADDR_CLIENT environment has to stay with the django
-header notation you can see more help [here](https://docs.djangoproject.com/en/2.0/ref/request-response/#django.http.HttpRequest.META)
+* LOGIN_ATTEMPTS: attempts to block account. Default: `10`
+* LOGIN_PREFIX: prefix of cache. Default: `user`
+* LOGIN_ACTIVATE: config to activate protection block. To activate you have to set this variable to
+`yes`. Default: no
 
 ## Configuration Staging/production(Environment variables)
 
@@ -120,7 +121,9 @@ example `.env` file:
     EMAIL_PORT=25
     EMAIL_HOST_USER=pepito@patatita123.com
     EMAIL_HOST_PASSWORD=SuperSecurePassword
-    ADDR_CLIENT=REMOTE_ADDR
+    LOGIN_ATTEMPTS=10
+    LOGIN_PREFIX=user_attemps
+    LOGIN_ACTIVATE=yes
 ```
 
 ## Environments
