@@ -45,7 +45,7 @@ PROJECT_APPS = [
     'corsheaders',
     'rest_framework',
     'rest_auth',
-    'axes'
+    'core'
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS
@@ -197,12 +197,6 @@ CORS_EXPOSE_HEADERS = [
     'Count',
 ]
 
-AUTHENTICATION_BACKENDS = [
-    'axes.backends.AxesModelBackend',
-    'django.contrib.auth.backends.ModelBackend',
-]
-
-
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
@@ -213,9 +207,3 @@ CACHES = {
         "KEY_PREFIX": "redis"
     }
 }
-
-AXES_CACHE = 'default'
-AXES_COOLOFF_TIME = datetime.timedelta(minutes=1)
-AXES_META_PRECEDENCE_ORDER = (os.environ.get('ADDR_CLIENT', 'REMOTE_ADDR'),)
-
-SITE_ID = 1
