@@ -211,3 +211,5 @@ CACHES = {
 LOGIN_ATTEMPTS = int(os.environ.get('LOGIN_ATTEMPTS', 10))
 LOGIN_PREFIX = os.environ.get('LOGIN_PREFIX', 'user')
 LOGIN_ACTIVATE = os.environ.get('LOGIN_ACTIVATE', 'no')
+
+SITE_ID = 1

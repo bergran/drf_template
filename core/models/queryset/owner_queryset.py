@@ -3,6 +3,6 @@
 from django.db import models
 
 
-class OnwerManager(models.QuerySet):
+class OnwerQuerySet(models.QuerySet):
     def ownered_by(self, owner):
         self.filter(owner__username=owner)

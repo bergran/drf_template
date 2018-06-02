@@ -4,7 +4,7 @@ from django.db import models
 from django.utils.timezone import now
 
 
-class PublishManager(models.QuerySet):
+class PublishQuerySet(models.QuerySet):
     def published(self):
         return self.filter(publish_date__lte=now())
 

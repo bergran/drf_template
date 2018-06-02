@@ -3,6 +3,6 @@
 from django.db import models
 
 
-class NameManager(models.QuerySet):
+class NameQuerySet(models.QuerySet):
     def named_by(self, name):
         self.filter(name=name)

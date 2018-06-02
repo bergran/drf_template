@@ -142,6 +142,9 @@ example `.env` file:
     client send data as application/json.
     This environment is usually used to develop backend.
 
+    Note: If you want to develop with the database and external django app
+    you should declare port on postgres container before run docker-compose
+
 2. Staging
 
     To start with staging environment you has to
