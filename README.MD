@@ -18,7 +18,7 @@ on configure it
 To install this template you only need to have
 django 2 or higher installed. Then,
 execute
-`python3 manage.py startproject --template https://github.com/bergran/drf_template/archive/master.zip`.
+`django-admin startproject --template https://github.com/bergran/drf_template/archive/master.zip`.
 This command will create a django project with the configuration
 to create api rest faster.
 
