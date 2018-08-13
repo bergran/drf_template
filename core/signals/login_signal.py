@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from django.contrib.auth.models import User
 from django.core.cache import cache
 from django.conf import settings
 
@@ -13,6 +12,8 @@ def login_success(sender, user, request, **kwargs):
 
 
 def login_fail(sender, credentials, request):
+    from django.contrib.auth.models import User
+
     username = credentials.get('username')
     user_prefix = prefix_login_attempts(username)
     attempts = cache.get(user_prefix, 0) + 1
