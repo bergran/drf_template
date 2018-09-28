@@ -11,7 +11,7 @@ def login_success(sender, user, request, **kwargs):
     cache.set(get_key_user(user.username), 0, 0)
 
 
-def login_fail(sender, credentials, request):
+def login_fail(sender, credentials, request, **kwargs):
     from django.contrib.auth.models import User
 
     username = credentials.get('username')
