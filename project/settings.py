@@ -149,7 +149,7 @@ REST_FRAMEWORK = {
     ),
     'TEST_REQUEST_DEFAULT_FORMAT': 'json',
     'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.NamespaceVersioning',
-    'DEFAULT_PAGINATION_CLASS': 'project.paginator.paginator.CountPaginationHeaders',
+    'DEFAULT_PAGINATION_CLASS': 'core.paginator.paginator.CountPaginationHeaders',
     'PAGE_SIZE': int(os.environ.get('PAGE_SIZE', 20))
 }
 
@@ -177,7 +177,7 @@ OLD_PASSWORD_FIELD_ENABLED = True
 REST_SESSION_LOGIN = False
 REST_USE_JWT = True
 REST_AUTH_SERIALIZERS = {
-    'LOGIN_SERIALIZER': 'project.serializers.login_custom_serializer.LoginSerializerCustom'
+    'LOGIN_SERIALIZER': 'core.serializers.login_custom_serializer.LoginSerializerCustom'
 }
 
 # CORS configuration
