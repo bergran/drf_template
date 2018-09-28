@@ -3,23 +3,23 @@ from django.core.cache import cache
 from django.conf import settings
 
 
-def prefix_login_attempts(username):
+def get_prefix_user(username):
     return 'user_attempts:{}'.format(username)
 
 
 def login_success(sender, user, request, **kwargs):
-    cache.set(prefix_login_attempts(user.username), 0, 0)
+    cache.set(get_prefix_user(user.username), 0, 0)
 
 
 def login_fail(sender, credentials, request):
     from django.contrib.auth.models import User
 
     username = credentials.get('username')
-    user_prefix = prefix_login_attempts(username)
+    user_prefix = get_prefix_user(username)
     attempts = cache.get(user_prefix, 0) + 1
 
     cache.set(
-        prefix_login_attempts(user_prefix), attempts, 300
+        get_prefix_user(user_prefix), attempts, 300
     )
 
     if attempts > settings.LOGIN_ATTEMPTS:
