@@ -20,6 +20,6 @@ REST_FRAMEWORK = {
         'rest_framework.filters.SearchFilter'
     ),
     'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.NamespaceVersioning',
-    'DEFAULT_PAGINATION_CLASS': 'project.paginator.CountPaginationHeaders',
+    'DEFAULT_PAGINATION_CLASS': 'core.paginator.paginator.CountPaginationHeaders',
     'PAGE_SIZE': os.environ.get('PAGE_SIZE', 20)
 }
