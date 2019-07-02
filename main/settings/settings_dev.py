@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from project.settings import *
+from main.settings.settings import *
 
 DEBUG = True
 

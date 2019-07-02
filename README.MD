@@ -64,7 +64,7 @@ Documentation is from coreapi library. You can see more info
 ## Configuration global(Environment variables)
 
 * DJANGO_SETTINGS_MODULE: Config environment configuration, you can see more
-info on `Environments` section. Default: `project.settings`
+info on `Environments` section. Default: `main.settings.settings`
 * SECRET_KEY: Secret key. This is used on hash password and jwt.
 default `'y-=ta...`
 * ALLOWED_HOST: Allowed host origin, others will be fail. Default `127.0.0.1`
@@ -99,7 +99,7 @@ Default `1440 minutes (1 day)`
 
 example `.env` file:
 ```
-    DJANGO_SETTINGS_MODULE=project.settings
+    DJANGO_SETTINGS_MODULE=main.settings.settings
     SECRET_KEY=x8R]j(4epfVD`3Xc
     ALLOWED_HOST=127.0.0.1
     PAGE_SIZE=20
@@ -132,7 +132,7 @@ example `.env` file:
     
     To start with development environment you has to
     set environment variable `DJANGO_SETTINGS_MODULE` to
-    `project.settings_dev`
+    `main.settings.settings_dev`
     
     Development environment configuration let you
     to program with coreapi/browseable documentation
@@ -149,7 +149,7 @@ example `.env` file:
 
     To start with staging environment you has to
     set environment variable `DJANGO_SETTINGS_MODULE` to
-    `project.settings_staging`
+    `main.settings.settings_staging`
     
     Staging environment configuration is very similar to development environment
     but this environment has more configuration as static and media urls or
@@ -159,7 +159,7 @@ example `.env` file:
 
     To start with production environment you has to
     set environment variable `DJANGO_SETTINGS_MODULE` to
-    `project.settings_prod`
+    `main.settings.settings_prod`
     
     Production environment configuration has all staging configuration except
     debug is set to false, that means django wont show errors on endpoint responses.

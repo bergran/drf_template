@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from project.settings_staging import *
+from main.settings.settings_staging import *
 
 DEBUG = False
 
