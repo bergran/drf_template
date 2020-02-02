@@ -13,17 +13,35 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
-
-from rest_framework.documentation import include_docs_urls
+from django.views.generic import TemplateView
+from rest_framework.permissions import AllowAny
 from rest_framework_jwt.views import verify_jwt_token, refresh_jwt_token
 
 urlpatterns = [
     path('', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
     path('api/', include('rest_auth.urls')),
-    path('api/docs/', include_docs_urls(title='Api documentation', public=False)),
     path('api/token/verify/', verify_jwt_token),
     path('api/token/refresh/', refresh_jwt_token)
 ]
+
+if settings.DEBUG:
+    from rest_framework.schemas import get_schema_view
+
+    urlpatterns.append(
+        path('api/docs/schema', get_schema_view(
+            title="Your Project",
+            description="API for all things …",
+            permission_classes=[AllowAny],
+            version='0.0.1'
+        ), name='openapi-schema'),
+    )
+    urlpatterns.append(
+        path('api/docs', TemplateView.as_view(
+            template_name='docs/swagger-ui.html',
+            extra_context={'schema_url': 'openapi-schema'}
+        ), name='swagger-ui'),
+    )

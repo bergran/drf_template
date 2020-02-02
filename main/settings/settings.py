@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
@@ -26,7 +25,6 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'y-=taav2b2xqy-2iej2u-2a#tcc#woj41&xb+
 DEBUG = True
 
 ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOST', 'localhost'), ]
-
 
 # Application definition
 
@@ -81,7 +79,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'main.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
@@ -91,7 +88,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -111,7 +107,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
@@ -124,7 +119,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
@@ -151,9 +145,8 @@ REST_FRAMEWORK = {
     'TEST_REQUEST_DEFAULT_FORMAT': 'json',
     'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.NamespaceVersioning',
     'DEFAULT_PAGINATION_CLASS': 'core.paginator.paginator.CountPaginationHeaders',
-    'PAGE_SIZE': int(os.environ.get('PAGE_SIZE', 20))
+    'PAGE_SIZE': int(os.environ.get('PAGE_SIZE', 20)),
 }
-
 
 # REST Auth
 # http://django-rest-auth.readthedocs.io/en/latest/
@@ -214,3 +207,5 @@ LOGIN_PREFIX = os.environ.get('LOGIN_PREFIX', 'user')
 LOGIN_ACTIVATE = os.environ.get('LOGIN_ACTIVATE', 'no')
 
 SITE_ID = 1
+
+URL_SCHEMA = os.environ.get('URL_SCHEMA', 'http://localhost:8000')

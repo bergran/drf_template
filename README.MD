@@ -53,7 +53,7 @@ Documentation it's gonna be automatic. When you add endpoints to
 router from rest framework this will add too to here.
 
 You can interact with this documentation. This means you can
-request your endpoints from the web that coreapi provides.
+request your endpoints from the web that swagger provides.
 
 It's published on `/api/docs/` and only can be access if the user is logged with
 django Session (cookie)
