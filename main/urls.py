@@ -18,14 +18,14 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
 from rest_framework.permissions import AllowAny
-from rest_framework_jwt.views import verify_jwt_token, refresh_jwt_token
+from rest_framework_simplejwt.views import TokenVerifyView, TokenRefreshView
 
 urlpatterns = [
     path('', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
-    path('api/', include('rest_auth.urls')),
-    path('api/token/verify/', verify_jwt_token),
-    path('api/token/refresh/', refresh_jwt_token)
+    path('api/', include('dj_rest_auth.urls')),
+    path('api/token/verify/', TokenVerifyView.as_view()),
+    path('api/token/refresh/', TokenRefreshView.as_view()),
 ]
 
 if settings.DEBUG:

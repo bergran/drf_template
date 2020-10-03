@@ -42,7 +42,8 @@ DJANGO_APPS = [
 PROJECT_APPS = [
     'corsheaders',
     'rest_framework',
-    'rest_auth',
+    'rest_framework.authtoken',
+    'dj_rest_auth',
     'core.apps.CoreConfig'
 ]
 
@@ -133,7 +134,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'dj_rest_auth.utils.JWTCookieAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
     ),
@@ -155,15 +156,14 @@ ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 
-JWT_AUTH = {
-    'JWT_SECRET_KEY': SECRET_KEY,
-    'JWT_VERIFY': True,
-    'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(
-        minutes=int(os.environ.get('REFRESH_EXPIRATION_MINUTES', 15))
-    ),
-    'JWT_ALLOW_REFRESH': True,
-    'JWT_EXPIRATION_DELTA': datetime.timedelta(minutes=int(os.environ.get('TOKEN_EXPIRATION_MINUTES', 1440))),
-    'JWT_AUTH_HEADER_PREFIX': os.environ.get('TOKEN_PREFIX', 'Bearer'),
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(days=1),
+    'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=1),
+    'ROTATE_REFRESH_TOKENS': True,
+    'BLACKLIST_AFTER_ROTATION': True,
+    'ALGORITHM': 'HS256',
+    'SIGNING_KEY': SECRET_KEY,
+    'AUTH_HEADER_TYPES': ('Bearer',),
 }
 
 LOGOUT_ON_PASSWORD_CHANGE = True
