@@ -1,6 +1,6 @@
-# -*- coding: utf-8 -*-
+from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import authenticate
-from rest_auth.serializers import LoginSerializer
+from dj_rest_auth.serializers import LoginSerializer
 from rest_framework import exceptions
 
 
