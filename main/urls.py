@@ -22,6 +22,7 @@ from rest_framework_simplejwt.views import TokenVerifyView, TokenRefreshView
 
 urlpatterns = [
     path('', include('django.contrib.auth.urls')),
+    path('', include('hello_world.urls')),
     path('admin/', admin.site.urls),
     path('api/', include('dj_rest_auth.urls')),
     path('api/token/verify/', TokenVerifyView.as_view()),
