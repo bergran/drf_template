@@ -21,6 +21,7 @@ For starters developers we let them some url of interest
 
    templates/first_steps/getting-started
    templates/first_steps/architecture
+   templates/first_steps/features
 
 Indices and tables
 ==================
