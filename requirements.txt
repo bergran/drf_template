@@ -14,12 +14,14 @@ django==3.1.2             # via -r requirements.in, dj-rest-auth, django-cors-he
 djangorestframework-link-header-pagination==0.1.1  # via -r requirements.in
 djangorestframework-simplejwt==4.4.0  # via -r requirements.in
 djangorestframework==3.12.1  # via -r requirements.in, dj-rest-auth, djangorestframework-link-header-pagination, djangorestframework-simplejwt
+gitchangelog==3.0.4       # via -r requirements.in
 gunicorn==20.0.4          # via -r requirements.in
 importlib-metadata==2.0.0  # via markdown
 markdown==3.2.2           # via -r requirements.in
 pip-tools==5.3.1          # via -r requirements.in
 psycopg2-binary==2.8.6    # via -r requirements.in
 pyjwt==1.7.1              # via djangorestframework-simplejwt
+pystache==0.5.4           # via -r requirements.in
 pytz==2020.1              # via django
 pyyaml==5.3.1             # via -r requirements.in
 redis==3.5.3              # via -r requirements.in, django-redis

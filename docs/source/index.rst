@@ -23,6 +23,14 @@ For starters developers we let them some url of interest
    templates/first_steps/architecture
    templates/first_steps/features
 
+Versions
+-----------
+
+.. toctree::
+   :maxdepth: 1
+
+   changelog
+
 Indices and tables
 ==================
 
