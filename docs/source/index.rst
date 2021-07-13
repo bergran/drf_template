@@ -23,6 +23,15 @@ For starters developers we let them some url of interest
    templates/first_steps/architecture
    templates/first_steps/features
 
+Tutorial
+-----------
+For starters developers we let them some url of interest
+
+.. toctree::
+   :maxdepth: 2
+
+   templates/tutorial/part_1
+
 Versions
 -----------
 

@@ -4,7 +4,11 @@
 #
 #    pip-compile
 #
+alabaster==0.7.12         # via sphinx
 asgiref==3.2.10           # via django
+babel==2.8.0              # via sphinx
+certifi==2020.6.20        # via requests
+chardet==3.0.4            # via requests
 click==7.1.2              # via pip-tools
 dj-rest-auth==1.1.2       # via -r requirements.in
 django-cors-headers==3.5.0  # via -r requirements.in
@@ -14,19 +18,38 @@ django==3.1.2             # via -r requirements.in, dj-rest-auth, django-cors-he
 djangorestframework-link-header-pagination==0.1.1  # via -r requirements.in
 djangorestframework-simplejwt==4.4.0  # via -r requirements.in
 djangorestframework==3.12.1  # via -r requirements.in, dj-rest-auth, djangorestframework-link-header-pagination, djangorestframework-simplejwt
+docutils==0.16            # via sphinx
 gitchangelog==3.0.4       # via -r requirements.in
 gunicorn==20.0.4          # via -r requirements.in
+idna==2.10                # via requests
+imagesize==1.2.0          # via sphinx
 importlib-metadata==2.0.0  # via markdown
+jinja2==2.11.2            # via sphinx
 markdown==3.2.2           # via -r requirements.in
+markupsafe==1.1.1         # via jinja2
+packaging==20.4           # via sphinx
 pip-tools==5.3.1          # via -r requirements.in
 psycopg2-binary==2.8.6    # via -r requirements.in
+pygments==2.7.1           # via sphinx
 pyjwt==1.7.1              # via djangorestframework-simplejwt
+pyparsing==2.4.7          # via packaging
 pystache==0.5.4           # via -r requirements.in
-pytz==2020.1              # via django
+pytz==2020.1              # via babel, django
 pyyaml==5.3.1             # via -r requirements.in
 redis==3.5.3              # via -r requirements.in, django-redis
-six==1.15.0               # via pip-tools
+requests==2.24.0          # via sphinx
+six==1.15.0               # via packaging, pip-tools
+snowballstemmer==2.0.0    # via sphinx
+sphinx-rtd-theme==0.5.0   # via -r requirements.in
+sphinx==3.2.1             # via -r requirements.in, sphinx-rtd-theme
+sphinxcontrib-applehelp==1.0.2  # via sphinx
+sphinxcontrib-devhelp==1.0.2  # via sphinx
+sphinxcontrib-htmlhelp==1.0.3  # via sphinx
+sphinxcontrib-jsmath==1.0.1  # via sphinx
+sphinxcontrib-qthelp==1.0.3  # via sphinx
+sphinxcontrib-serializinghtml==1.1.4  # via sphinx
 sqlparse==0.3.1           # via django
+urllib3==1.25.10          # via requests
 zipp==3.2.0               # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:

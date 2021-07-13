@@ -106,6 +106,16 @@ For this feature we use `Django cors headers <https://github.com/adamchainz/djan
 that let us a lot of configurations and explanations about this theme.
 
 
+Models
+------
+
+In my experience, i saw how important is to try don't repeat code, and in our
+model is not an exception. That's why django provide an option to let us
+re-use some attributes like **created** or **updated** instance, make an
+instance delete logic and so on. In this template are developed some behaviours
+like this on core app
+
+
 Settings
 --------
 
@@ -155,3 +165,18 @@ tool can document with docstrings as numpy or google documentation format.
 Documentation is saved on **docs/source** directory, with some configurations
 and the files. You can see more info `here <https://www.sphinx-doc.org/en/master/>`_
 
+
+Changelog
+---------
+
+It's very important to know our code, but sometimes we have more than one
+project in our hand and we can forgot some changes in some versions, that's
+why changelog help us to identify these changes.
+
+It's installed and configured **gitchangelog** tool to help with this task,
+to start just execute:
+
+.. code-block::
+
+    cd docs
+    gitchangelog > changelog.rst
